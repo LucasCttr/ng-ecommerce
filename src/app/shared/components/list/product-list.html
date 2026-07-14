@@ -1,0 +1,8 @@
+<h1>Listado</h1>
+<div class="row g-3">
+  @for (item of products(); track item.id) {
+    <div class="col-6 col-md-4 col-lg-2">
+      <app-card [title]="item.title" [text]="item.description" [price]="item.price" [images]="item.images" />
+    </div>
+  }
+</div>
