@@ -1,0 +1,23 @@
+.card {
+  overflow: hidden;
+}
+
+.card-body {
+  overflow: hidden;
+}
+
+.clamp-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 2.6rem; /* fijo, no min-height: así todos los títulos ocupan lo mismo */
+}
+
+.clamp-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 4rem; /* fijo, 3 líneas a font-size small */
+}

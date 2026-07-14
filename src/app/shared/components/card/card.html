@@ -1,8 +1,21 @@
-<div class="card text-white bg-success h-100 w-80">
-  <img class="card-img-top" src="{{ images()[0] }}" alt="" />
-<div class="card-body d-flex flex-column ">
-  <h5 class="card-title">{{ title() }}</h5>
-  <p class="card-text">{{ text() }}</p>
-  <p class="card-price mt-auto fw-bold">${{ price() }}</p>
-</div>
+<div class="card border-0 shadow-sm" style="height: 340px">
+  <img
+    class="card-img-top"
+    [src]="images()[0]"
+    style="height: 150px; object-fit: contain"
+    alt="Imagen"
+  />
+
+  <div class="card-body d-flex flex-column">
+    <h5 class="card-title">{{ title() }}</h5>
+
+    <p class="card-text small text-muted clamp-text mb-0">
+      {{ text() }}
+    </p>
+
+    <div class="mt-auto d-flex justify-content-between align-items-center">
+      <p class="card-price fw-bold fs-5 text-success mb-0">${{ price() }}</p>
+      <button class="btn btn-outline-primary btn-sm">Details</button>
+    </div>
+  </div>
 </div>
