@@ -1,8 +1,7 @@
-import { Component, inject } from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Category } from '../../interfaces/product.interface';
 import { ProductService } from '../../services/product.service';
-
 
 @Component({
   selector: 'app-sidebar',
@@ -17,6 +16,16 @@ export class Sidebar {
   minInput = '';
   maxInput = '';
 
+  constructor() {
+    effect(() => {
+      // Se re-ejecuta automáticamente cuando priceMin/priceMax cambian a null (o sea, al limpiar)
+      if (this.productService.priceMin() === null && this.productService.priceMax() === null) {
+        this.minInput = '';
+        this.maxInput = '';
+      }
+    });
+  }
+
   selectCategory(category: Category | null) {
     this.productService.setCategory(category);
   }
@@ -26,7 +35,6 @@ export class Sidebar {
     const max = this.maxInput ? Number(this.maxInput) : null;
     this.productService.setPriceRange(min, max);
   }
-
 
   clearAll() {
     this.productService.clearFilters();

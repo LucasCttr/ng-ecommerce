@@ -1,4 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
+import { CartService } from '../../../services/cart.service';
 
 @Component({
   selector: 'app-card',
@@ -7,6 +8,9 @@ import { Component, input } from '@angular/core';
   styleUrl: './card.css',
 })
 export class Card {
+  cartService = inject(CartService);
+
+  id = input<number>(0);
   title = input<string>('Card Title');
   text = input<string>('Card Text');
   price = input<number>(0);
